@@ -1,0 +1,35 @@
+<div class="center" style="margin-top: 50px;">
+
+    <div *ngIf="editando===true" style="margin-top: 25px; margin-bottom: 25px;">
+        <form [formGroup]="edicao" (ngSubmit)="editarUsuario()">
+            <div class="d-flex">
+                <div class="p-2 wd24 flex-fill">Nome Completo</div>
+                <div class="p-2 wd24 flex-fill">Telefone</div>
+                <div class="p-2 wd24 flex-fill">CPF</div>
+                <div class="p-2 wd28 flex-fill">Email</div>
+            </div>
+            <div class="d-flex">
+                <div class="p-2 wd24 flex-fill"><input type="text" class="input" formControlName="name"></div>
+                <div class="p-2 wd24 flex-fill"><input type="text" class="input" formControlName="phone"></div>
+                <div class="p-2 wd24 flex-fill"><input type="text" class="input" formControlName="cpf"></div>
+                <div class="p-2 wd24 flex-fill"><input type="text" class="input" formControlName="email"></div>
+                <div class="p-2 wd4 flex-fill"><button type="submit" class="btn rounded-pill" [disabled]="edicao.invalid">V</button></div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="d-flex">
+        <div class="p-2 wd24 flex-fill">Nome Completo</div>
+        <div class="p-2 wd24 flex-fill">Telefone</div>
+        <div class="p-2 wd24 flex-fill">CPF</div>
+        <div class="p-2 wd28 flex-fill">Email</div>
+    </div>
+    <div *ngFor="let usuario of listaUsuarios" class="d-flex">
+        <div class="p-2 wd24 flex-fill">{{usuario.name}}</div>
+        <div class="p-2 wd24 flex-fill">{{usuario.phone}}</div>
+        <div class="p-2 wd24 flex-fill">{{usuario.cpf}}</div>
+        <div class="p-2 wd24 flex-fill">{{usuario.email}}</div>
+        <div class="p-2 wd4 flex-fill"><input (click)="editar(usuario)" type="image" [src]="teste" /></div>
+    </div>
+</div>

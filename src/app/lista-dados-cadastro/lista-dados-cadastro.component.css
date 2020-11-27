@@ -1,0 +1,25 @@
+.center {
+    margin: auto;
+    width: 80%;
+}
+
+.p-2 {
+    border-top: 2px solid black;
+    border-left: 2px dotted black;
+    border-right: 2px dotted black;
+    border-bottom: 2px solid black;
+    font-weight: 500;
+    width: 25%;
+}
+
+.wd28 {
+    width: 28%;
+}
+
+.wd24 {
+    width: 24%;
+}
+
+.wd4 {
+    width: 4%;
+}

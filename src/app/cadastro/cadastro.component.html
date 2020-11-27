@@ -1,0 +1,49 @@
+<div style="margin-top: 25px;">
+    <div class="col">
+        <div class="row">
+            <div class=" container center">
+                <!-- FORMULARIO DE CADASTRO DE USUARIO -->
+                <form [formGroup]="cadastro" (ngSubmit)="cadastrarUsuario()">
+                    <!-- NOME -->
+                    <div class="form-group">
+                        <label class="col label">Nome completo (sem abreviações)</label>
+                        <div class="col">
+                            <input type="text" class="input" formControlName="name">
+                        </div>
+                        <p class="small text-center" style="color: red;" *ngIf="!cadastro.get('name').valid && cadastro.get('name').touched">Campo deve conter 3 caracteres ou mais</p>
+                    </div>
+                    <!-- CPF -->
+                    <div class="form-group">
+                        <label class="col label">CPF</label>
+                        <div class="col">
+                            <input type="text" class="input" formControlName="cpf">
+                        </div>
+                        <p class="small text-center" style="color: red;" *ngIf="!cadastro.get('cpf').valid && cadastro.get('cpf').touched">Campo deve conter 3 caracteres ou mais</p>
+                    </div>
+                    <!-- TELEFONE -->
+                    <div class="form-group">
+                        <label class="col label">Telefone</label>
+                        <div class="col">
+                            <input type="text" class="input" formControlName="phone">
+                        </div>
+                        <p class="small text-center" style="color: red;" *ngIf="!cadastro.get('phone').valid && cadastro.get('phone').touched">Campo deve conter 3 caracteres ou mais</p>
+                    </div>
+                    <!-- EMAIL -->
+                    <div class="form-group">
+                        <label class="col label">E-mail</label>
+                        <div class="col">
+                            <input type="email" class="input" formControlName="email">
+                        </div>
+                        <p class="small text-center" style="color: red;" *ngIf="!cadastro.get('email').valid && cadastro.get('email').touched">Campo deve conter 3 caracteres ou mais</p>
+                    </div>
+                    <div class="btn">
+                        <button type="submit" class="btn rounded-pill" [disabled]="cadastro.invalid">
+                                <span *ngIf="carregando===false" style="font-size: x-large;" >Cadastrar</span>
+                                <span *ngIf="carregando===true" class="spinner-border spinner-border-sm"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

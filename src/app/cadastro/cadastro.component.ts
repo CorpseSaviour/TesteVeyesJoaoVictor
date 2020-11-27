@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { interval, Observable } from 'rxjs';
-import { HTTP } from '../http.service';
+import { HttpService } from '../http.service';
 
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.css'],
-  providers: [HTTP]
+  providers: [HttpService]
 })
 export class CadastroComponent implements OnInit {
 
@@ -24,7 +24,7 @@ export class CadastroComponent implements OnInit {
     'email': new FormControl(null, [Validators.required, Validators.minLength(3)])
   })
 
-  constructor(private router: Router, private http: HTTP) { }
+  constructor(private router: Router, private http: HttpService) { }
 
   ngOnInit(): void {
     /**

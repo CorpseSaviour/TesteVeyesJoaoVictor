@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { interval, Observable } from 'rxjs';
 
@@ -7,18 +7,19 @@ import { interval, Observable } from 'rxjs';
   templateUrl: './lista-dados-cadastro.component.html',
   styleUrls: ['./lista-dados-cadastro.component.css']
 })
-export class ListaDadosCadastroComponent implements OnInit {
+export class ListaDadosCadastroComponent implements OnInit, OnChanges {
 
-  public listaUsuarios: any
+  public listaUsuarios: any = {}
   public usuarioEditado: any = { name: '', cpf: '', phone: '', email: '' }
   public editando: boolean = false
 
 
+
   public edicao: FormGroup = new FormGroup({
     'name': new FormControl(null, [Validators.required, Validators.minLength(3)]),
-    'cpf': new FormControl(this.usuarioEditado.cpf, [Validators.required, Validators.minLength(3)]),
-    'phone': new FormControl(this.usuarioEditado.phone, [Validators.required, Validators.minLength(3)]),
-    'email': new FormControl(this.usuarioEditado.email, [Validators.required, Validators.minLength(3)])
+    'cpf': new FormControl(null, [Validators.required, Validators.minLength(3)]),
+    'phone': new FormControl(null, [Validators.required, Validators.minLength(3)]),
+    'email': new FormControl(null, [Validators.required, Validators.minLength(3)])
   })
 
   constructor() { }
@@ -26,25 +27,33 @@ export class ListaDadosCadastroComponent implements OnInit {
   teste = "./assets/pencil.ico"
 
   ngOnInit(): void {
-    this.updateLista()
+    this.listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios'))
   }
 
-  public editar(input: any) {
+  ngOnChanges(): void {
+
+  }
+
+  public exibirEditor(input: any) {
+    this.usuarioEditado = input
     this.editando = true
-    this.usuarioEditado = JSON.parse(input)
-    let timer = this.timer().subscribe((response: any) => {
-      if (response === 1){
-        this.edicao.setValue({ name: this.usuarioEditado.name })        
-      }
-    })
   }
 
   public editarUsuario() {
+    for (var i = 0; i < this.listaUsuarios.length; i++) {
+      if (this.listaUsuarios[i].name === this.usuarioEditado.name) {
+        this.listaUsuarios[i] = this.edicao.value;
+        break;
+      }
+    }
     this.updateLista()
+    this.editando = false
   }
 
   public updateLista() {
-    this.listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios'))
+    if (localStorage.getItem('listaUsuarios') !== null) {
+      localStorage.setItem('listaUsuarios', JSON.stringify(this.listaUsuarios))
+    }
   }
 
   public timer(): Observable<any> {

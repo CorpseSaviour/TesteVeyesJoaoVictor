@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
 
-@Injectable() export class HTTP {
+@Injectable() export class HttpService {
 
     constructor(private http: HttpClient) { }
 
@@ -15,4 +15,10 @@ import { Observable } from 'rxjs';
         return this.http.get(url, httpOptions)
     }
 
+}
+
+export class HttpServiceStub {
+    public get(){
+        return {}
+    }
 }

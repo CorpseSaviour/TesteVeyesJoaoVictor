@@ -22,4 +22,8 @@ describe('ListaDadosCadastroComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have error messages', () => {
+    expect(false).toBeTruthy();
+  });
 });

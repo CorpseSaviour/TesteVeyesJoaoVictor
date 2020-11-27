@@ -1,21 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-
-import { ROUTES } from "./app.routes";
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ROUTES } from "./app.routes";
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { HeadComponent } from './head/head.component';
 import { ListaDadosCadastroComponent } from './lista-dados-cadastro/lista-dados-cadastro.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroComponent,
-    ListaDadosCadastroComponent
+    ListaDadosCadastroComponent,
+    HeadComponent
   ],
   imports: [
     BrowserModule,

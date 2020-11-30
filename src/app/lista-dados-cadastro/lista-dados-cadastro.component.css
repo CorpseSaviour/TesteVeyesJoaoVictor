@@ -1,6 +1,6 @@
 .center {
     margin: auto;
-    width: 90%;
+    width: 95%;
 }
 
 input {
@@ -88,6 +88,10 @@ p {
     font-size: small;
 }
 
+.wd31 {
+    width: 31%;
+}
+
 .wd295 {
     width: 29.5%;
 }
@@ -98,6 +102,10 @@ p {
 
 .wd24 {
     width: 24%;
+}
+
+.wd23 {
+    width: 23%;
 }
 
 .wd235 {

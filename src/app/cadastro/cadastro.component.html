@@ -7,7 +7,9 @@
                     <!-- NOME -->
                     <div class="form-group">
                         <label class="col label">Nome completo (sem abreviações)</label>
-                        <input type="text" class="input form-control" formControlName="name">
+                        <div class="col">
+                            <input type="text" class="input form-control" formControlName="name">
+                        </div>
                         <p class="small text-center" style="color: red;" *ngIf="!cadastro.get('name').valid && cadastro.get('name').touched">Campo deve conter 3 caracteres ou mais</p>
                     </div>
                     <!-- CPF -->
@@ -34,12 +36,10 @@
                         </div>
                         <p class="small text-center" style="color: red;" *ngIf="!cadastro.get('email').valid && cadastro.get('email').touched">Campo deve conter 3 caracteres ou mais</p>
                     </div>
-                    <div class="btn">
-                        <button type="submit" class="btn rounded-pill" [disabled]="cadastro.invalid">
-                                <span *ngIf="carregando===false" style="font-size: x-large;" >Cadastrar</span>
-                                <span *ngIf="carregando===true" class="spinner-border spinner-border-sm"></span>
-                        </button>
-                    </div>
+                    <button type="submit" class="rounded-pill" [disabled]="cadastro.invalid">
+                        <span *ngIf="carregando===false" style="font-size: x-large;" >Cadastrar</span>
+                        <span *ngIf="carregando===true" class="spinner-border spinner-border-sm"></span>
+                    </button>
                 </form>
             </div>
         </div>

@@ -1,0 +1,11 @@
+.btn {
+    border-bottom: 3px solid #333333;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    color: #333333;
+    width: 100%;
+    outline: none;
+    font-weight: 500;
+    font-size: larger;
+}

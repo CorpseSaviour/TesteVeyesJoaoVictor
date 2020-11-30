@@ -4,7 +4,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
-import { asyncScheduler, Observable, of, scheduled, timer } from 'rxjs';
 import { HttpService, HttpServiceStub } from '../http.service';
 import { CadastroComponent } from './cadastro.component';
 
@@ -47,12 +46,6 @@ describe('CadastroComponent', () => {
     const linkDes = fixture.debugElement.queryAll(By.css('button'))
     const nativeButton: HTMLButtonElement = linkDes[0].nativeElement
     expect(nativeButton.textContent).toBe('Cadastrar')
-    console.log(nativeButton);
-    nativeButton.click();
-    fixture.detectChanges();
-    fixture.whenStable().then(() => {
-      expect(nativeButton.textContent).not.toBe('Cadastrar');
-    });
   })
 });
 
@@ -77,7 +70,7 @@ class Helper {
   items: Item[] = []
   getItems(ammount): Item[] {
     for (let index = 0; index < this.items.length; index++) {
-      this.items.push(new Item(`nome`+index,`cpf`+index,`nome`+index,`nome`+index))
+      this.items.push(new Item(`nome` + index, `cpf` + index, `nome` + index, `nome` + index))
     }
     return this.items
   }

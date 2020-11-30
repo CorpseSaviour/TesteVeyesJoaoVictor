@@ -8,9 +8,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ListaDadosCadastroComponent implements OnInit, OnChanges {
 
-  public listaUsuarios: any = {}
+  public listaUsuarios: Array<any> = new Array<any>()
   public usuarioEditado: any = { name: '', cpf: '', phone: '', email: '' }
   public editando: boolean = false
+  public excluindo: boolean = false
 
 
 
@@ -23,7 +24,9 @@ export class ListaDadosCadastroComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  buttonIcon = "./assets/pencil.ico"
+  pencilIcon = "./assets/pencil.ico"
+  cancelIcon = "./assets/cancel.ico"
+  trashIcon = "./assets/trash.ico"
 
   ngOnInit(): void {
     this.listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios'))
@@ -38,7 +41,17 @@ export class ListaDadosCadastroComponent implements OnInit, OnChanges {
     this.editando = true
   }
 
-  public editarUsuario():string {
+  public cancelarExcluir() {
+    this.usuarioEditado = { name: '', cpf: '', phone: '', email: '' }
+    this.excluindo = false
+  }
+
+  public exibirExcluir(input: any) {
+    this.usuarioEditado = input
+    this.excluindo = true
+  }
+
+  public editarUsuario() {
     for (var i = 0; i < this.listaUsuarios.length; i++) {
       if (this.listaUsuarios[i].name === this.usuarioEditado.name) {
         this.listaUsuarios[i] = this.edicao.value;
@@ -47,13 +60,21 @@ export class ListaDadosCadastroComponent implements OnInit, OnChanges {
     }
     this.updateLista()
     this.editando = false
-    return 'editing'
+  }
+
+  public excluirUsuario() {
+    for (var i = 0; i < this.listaUsuarios.length; i++) {
+      if (this.listaUsuarios[i].name === this.usuarioEditado.name) {
+        this.listaUsuarios.splice(i, 1)
+        break;
+      }
+    }
+    this.updateLista()
+    this.excluindo = false
   }
 
   public updateLista() {
-    if (localStorage.getItem('listaUsuarios') !== null) {
-      localStorage.setItem('listaUsuarios', JSON.stringify(this.listaUsuarios))
-    }
+    localStorage.setItem('listaUsuarios', JSON.stringify(this.listaUsuarios))
   }
 }
 

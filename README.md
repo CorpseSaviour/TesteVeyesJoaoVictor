@@ -1,10 +1,59 @@
 # TesteVeye
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
+Teste para vaga de desenvolvedor Front-end para V.eye, construido utilizando 
 
-## Development server
+## Instalação
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Comandos de teste 
+
+...shell
+...cd /local-do-projeto
+...ng serve
+
+
+## Desenvolvimento
+
+### Built With
+[Angular CLI](https://github.com/angular/angular-cli) versão 10.1.2.
+
+### Prerequisites
+What is needed to set up the dev environment. For instance, global dependencies or any other tools. include download links.
+
+
+### Setting up Dev
+
+Here's a brief intro about what a developer must do in order to start developing
+the project further:
+
+```shell
+git clone https://github.com/CorpseSaviour/TesteVeyesJoaoVictor.git
+cd TesteVeyesJoaoVictor/
+npm install
+```
+
+And state what happens step-by-step. If there is any virtual environment, local server or database feeder needed, explain here.
+
+### Deploying / Publishing
+give instructions on how to build and release a new version
+In case there's some step you have to take that publishes this project to a
+server, this is the right time to state it.
+
+```shell
+packagemanager deploy your-project -s server.com -u username -p password
+```
+
+And again you'd need to tell what the previous code actually does.
+
+## Tests
+
+Para servidor de desenvolvimento, utilize o comando `ng serve`, o servidor irá servir a aplicação em `http://localhost:4200/`,
+a aplicação ira recarregar automaticamente apos qualquer mudança nos arquivos fonte 
+
+```shell
+ng serve
+```
+
+Para testes unitários, utilize o comando `ng test`, testes serão executados via [Karma](https://karma-runner.github.io).
 
 ## Code scaffolding
 
@@ -17,10 +66,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 

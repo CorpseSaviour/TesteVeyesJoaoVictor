@@ -1,63 +1,57 @@
 <div class="center" style="margin-top: 50px;">
-
-    <div *ngIf="editando===true" style="margin-top: 25px; margin-bottom: 25px;">
-        <form [formGroup]="edicao" (ngSubmit)="editarUsuario()">
-            <div class="d-flex">
-                <div class="p-2 wd235 flex-fill">Nome Completo</div>
-                <div class="p-2 wd235 flex-fill">Telefone</div>
-                <div class="p-2 wd235 flex-fill">CPF</div>
-                <div class="p-2 wd295 flex-fill">Email</div>
-            </div>
-            <div class="d-flex">
-                <div class="p-2 wd235 flex-fill">
-                    <div class="col">
-                        {{usuarioEditado.name}}
-                    </div>
-                    <div class="col">
+    <div class="edicao">
+        <div *ngIf="editando===true" style="margin-top: 25px; margin-bottom: 25px;">
+            <form [formGroup]="edicao" (ngSubmit)="editarUsuario()">
+                <div class="d-flex">
+                    <div class="p-2 wd235 flex-fill">Nome Completo</div>
+                    <div class="p-2 wd235 flex-fill">Telefone</div>
+                    <div class="p-2 wd235 flex-fill">CPF</div>
+                    <div class="p-2 wd295 flex-fill">Email</div>
+                </div>
+                <div class="d-flex">
+                    <div class="p-2 wd235 flex-fill">{{usuarioEditado.name}}</div>
+                    <div class="p-2 wd235 flex-fill">{{usuarioEditado.phone}}</div>
+                    <div class="p-2 wd235 flex-fill">{{usuarioEditado.cpf}}</div>
+                    <div class="p-2 wd295 flex-fill">{{usuarioEditado.email}}</div>
+                </div>
+                <div class="d-flex">
+                    <div class="p-2 wd235 flex-fill">
                         <input type="text" class="input" formControlName="name">
+                        <p *ngIf="!edicao.get('name').valid && edicao.get('name').touched">Campo deve conter 3 caracteres ou mais</p>
                     </div>
-                </div>
-                <div class="p-2 wd235 flex-fill">
-                    <div class="col">
-                        {{usuarioEditado.phone}}
-                    </div>
-                    <div class="col">
+                    <div class="p-2 wd235 flex-fill">
                         <input type="text" class="input" formControlName="phone">
+                        <p *ngIf="!edicao.get('phone').valid && edicao.get('phone').touched">Campo deve conter 3 caracteres ou mais</p>
                     </div>
-                </div>
-                <div class="p-2 wd235 flex-fill">
-                    <div class="col">
-                        {{usuarioEditado.cpf}}
-                    </div>
-                    <div class="col">
+                    <div class="p-2 wd235 flex-fill">
                         <input type="text" class="input" formControlName="cpf">
+                        <p *ngIf="!edicao.get('cpf').valid && edicao.get('cpf').touched">Campo deve conter 3 caracteres ou mais</p>
                     </div>
-                </div>
-                <div class="p-2 wd235 flex-fill">
-                    <div class="col">
-                        {{usuarioEditado.email}}
-                    </div>
-                    <div class="col">
+                    <div class="p-2 wd235 flex-fill">
                         <input type="text" class="input" formControlName="email">
+                        <p *ngIf="!edicao.get('email').valid && edicao.get('email').touched">Campo deve conter 3 caracteres ou mais</p>
                     </div>
+                    <div class="p-2 wd6 flex-fill"><button type="submit" class="btn rounded-pill" [disabled]="edicao.invalid">Editar</button></div>
                 </div>
-                <div class="p-2 wd6 flex-fill"><button type="submit" class="btn rounded-pill" [disabled]="edicao.invalid">Editar</button></div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
 
-    <div class="d-flex">
-        <div class="p-2 wd24 flex-fill">Nome Completo</div>
-        <div class="p-2 wd24 flex-fill">Telefone</div>
-        <div class="p-2 wd24 flex-fill">CPF</div>
-        <div class="p-2 wd28 flex-fill">Email</div>
-    </div>
-    <div *ngFor="let usuario of listaUsuarios" class="d-flex">
-        <div class="p-2 wd24 flex-fill">{{usuario.name}}</div>
-        <div class="p-2 wd24 flex-fill">{{usuario.phone}}</div>
-        <div class="p-2 wd24 flex-fill">{{usuario.cpf}}</div>
-        <div class="p-2 wd24 flex-fill">{{usuario.email}}</div>
-        <div class="p-2 wd4 flex-fill"><input (click)="exibirEditor(usuario)" type="image" [src]="teste" /></div>
+
+    <div class="lista">
+        <div class="d-flex">
+            <div class="p-2 wd24 flex-fill">Nome Completo</div>
+            <div class="p-2 wd24 flex-fill">Telefone</div>
+            <div class="p-2 wd24 flex-fill">CPF</div>
+            <div class="p-2 wd28 flex-fill">Email</div>
+        </div>
+        <div *ngFor="let usuario of listaUsuarios" class="d-flex">
+            <div class="p-2 wd24 flex-fill">{{usuario.name}}</div>
+            <div class="p-2 wd24 flex-fill">{{usuario.phone}}</div>
+            <div class="p-2 wd24 flex-fill">{{usuario.cpf}}</div>
+            <div class="p-2 wd24 flex-fill">{{usuario.email}}</div>
+            <div class="p-2 wd4 flex-fill"><button (click)="exibirEditor(usuario)"><img [src]="buttonIcon"></button></div>
+        </div>
     </div>
 </div>

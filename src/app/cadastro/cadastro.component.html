@@ -7,9 +7,7 @@
                     <!-- NOME -->
                     <div class="form-group">
                         <label class="col label">Nome completo (sem abreviações)</label>
-                        <div class="col">
-                            <input type="text" class="input" formControlName="name">
-                        </div>
+                        <input type="text" class="input form-control" formControlName="name">
                         <p class="small text-center" style="color: red;" *ngIf="!cadastro.get('name').valid && cadastro.get('name').touched">Campo deve conter 3 caracteres ou mais</p>
                     </div>
                     <!-- CPF -->

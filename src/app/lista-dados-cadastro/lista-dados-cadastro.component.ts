@@ -1,6 +1,5 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { interval, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-lista-dados-cadastro',
@@ -24,7 +23,7 @@ export class ListaDadosCadastroComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  teste = "./assets/pencil.ico"
+  buttonIcon = "./assets/pencil.ico"
 
   ngOnInit(): void {
     this.listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios'))
@@ -39,7 +38,7 @@ export class ListaDadosCadastroComponent implements OnInit, OnChanges {
     this.editando = true
   }
 
-  public editarUsuario() {
+  public editarUsuario():string {
     for (var i = 0; i < this.listaUsuarios.length; i++) {
       if (this.listaUsuarios[i].name === this.usuarioEditado.name) {
         this.listaUsuarios[i] = this.edicao.value;
@@ -48,16 +47,13 @@ export class ListaDadosCadastroComponent implements OnInit, OnChanges {
     }
     this.updateLista()
     this.editando = false
+    return 'editing'
   }
 
   public updateLista() {
     if (localStorage.getItem('listaUsuarios') !== null) {
       localStorage.setItem('listaUsuarios', JSON.stringify(this.listaUsuarios))
     }
-  }
-
-  public timer(): Observable<any> {
-    return interval(100)
   }
 }
 

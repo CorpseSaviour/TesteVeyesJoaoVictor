@@ -19,6 +19,6 @@ import { Observable } from 'rxjs';
 
 export class HttpServiceStub {
     public get(){
-        return {}
+        return ['','','','']
     }
 }

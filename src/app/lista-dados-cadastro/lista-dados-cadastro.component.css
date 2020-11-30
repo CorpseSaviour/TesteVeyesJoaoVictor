@@ -83,6 +83,11 @@ input.ng-touched.ng-invalid {
     width: 25%;
 }
 
+p {
+    color: red;
+    font-size: small;
+}
+
 .wd295 {
     width: 29.5%;
 }

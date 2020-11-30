@@ -60,10 +60,10 @@ ng test
 
 ### Build e Deploy
 
-Para build de distribuição, utilizar o comando `ng build`, build sera armazenada na pasta `dist/`, utilizar a flag `--prod` para build de produção.
+Para realizar a build, utilizar o comando `ng build`, build sera armazenada na pasta `dist/`
 
 ```shell
-ng build --prod
+ng build
 ```
 
 Para deploy do projeto, fazer upload da build para o AWS S3

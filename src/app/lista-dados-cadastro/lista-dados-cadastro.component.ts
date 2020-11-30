@@ -65,7 +65,7 @@ export class ListaDadosCadastroComponent implements OnInit, OnChanges {
   public excluirUsuario() {
     for (var i = 0; i < this.listaUsuarios.length; i++) {
       if (this.listaUsuarios[i].name === this.usuarioEditado.name) {
-        this.listaUsuarios.splice(i,1)
+        this.listaUsuarios.splice(i, 1)
         break;
       }
     }
@@ -74,7 +74,7 @@ export class ListaDadosCadastroComponent implements OnInit, OnChanges {
   }
 
   public updateLista() {
-      localStorage.setItem('listaUsuarios', JSON.stringify(this.listaUsuarios))
+    localStorage.setItem('listaUsuarios', JSON.stringify(this.listaUsuarios))
   }
 }
 

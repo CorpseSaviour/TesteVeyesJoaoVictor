@@ -28,7 +28,7 @@ describe('ListaDadosCadastroComponent', () => {
   });
 
   //Testes da lista
-  it('should have a list', async() => {
+  it('should have a list', async () => {
     //Encontra os componentes lista e edicao
     let listaDes: DebugElement[] = fixture.debugElement.queryAll(By.css('div.lista'));
     let edicaoDes: DebugElement[] = fixture.debugElement.queryAll(By.css('div.edicao'));
@@ -44,9 +44,9 @@ describe('ListaDadosCadastroComponent', () => {
       //Verifica se o quinto elemento da lista é um botão      
       buttonDivDe = itensListaDes[index].query(By.css('button'));
       nativeButton = itensListaDes[index].children[4].query(By.css('button')).nativeNode;
-      expect(nativeButton).not.toBeNull('one or more items of the list don\'t have one or more buttons');      
+      expect(nativeButton).not.toBeNull('one or more items of the list don\'t have one or more buttons');
       nativeButton = itensListaDes[index].children[5].query(By.css('button')).nativeNode;
-      expect(nativeButton).not.toBeNull('one or more items of the list don\'t have one or more buttons');      
+      expect(nativeButton).not.toBeNull('one or more items of the list don\'t have one or more buttons');
     }
   })
   @Component({ template: '' }) class ListaDadosCadastroComponentStub {

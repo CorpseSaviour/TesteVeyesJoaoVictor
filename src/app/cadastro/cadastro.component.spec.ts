@@ -47,12 +47,6 @@ describe('CadastroComponent', () => {
     const linkDes = fixture.debugElement.queryAll(By.css('button'))
     const nativeButton: HTMLButtonElement = linkDes[0].nativeElement
     expect(nativeButton.textContent).toBe('Cadastrar')
-    console.log(nativeButton);
-    nativeButton.click();
-    fixture.detectChanges();
-    fixture.whenStable().then(() => {
-      expect(nativeButton.textContent).not.toBe('Cadastrar');
-    });
   })
 });
 

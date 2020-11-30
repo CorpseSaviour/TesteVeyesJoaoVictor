@@ -44,7 +44,7 @@ input.ng-touched.ng-invalid {
     font-size: larger;
 }
 
-.btn {
+button {
     width: 100%;
     border: transparent;
     margin-left: auto;
@@ -53,19 +53,20 @@ input.ng-touched.ng-invalid {
     height: 60px;
 }
 
-.btn:disabled {
+button:disabled {
     color: #dddcdc;
     background-color: #f6f6f6;
     outline: none;
 }
 
-.btn:enabled {
+button:enabled {
     color: #ffffff;
     background-color: #00c8b3;
+    opacity: 100%;
     outline: none;
 }
 
-.btn:enabled:hover {
+button:enabled:hover {
     color: #ffffff;
     background-color: #00c8b3;
     opacity: 70%;

@@ -36,22 +36,46 @@
             </form>
         </div>
     </div>
+    <div class="exclusao">
+        <div *ngIf="excluindo===true" style="margin-top: 25px; margin-bottom: 25px;">
+            <form [formGroup]="edicao" (ngSubmit)="excluirUsuario()">
+                <div class="d-flex">
+                    <div class="p-2 flex-fill">Excluir usuario?</div>
+                    <div class="p-2 flex-fill"><button (click)="excluirUsuario()">excluir<img [src]="trashIcon"></button></div>
+                    <div class="p-2 flex-fill"><button (click)="cancelarExcluir()">cancelar<img [src]="cancelIcon"></button></div>
+                </div>
+                <div class="d-flex">
+                    <div class="p-2 wd235 flex-fill">Nome Completo</div>
+                    <div class="p-2 wd235 flex-fill">Telefone</div>
+                    <div class="p-2 wd235 flex-fill">CPF</div>
+                    <div class="p-2 wd295 flex-fill">Email</div>
+                </div>
+                <div class="d-flex">
+                    <div class="p-2 wd235 flex-fill">{{usuarioEditado.name}}</div>
+                    <div class="p-2 wd235 flex-fill">{{usuarioEditado.phone}}</div>
+                    <div class="p-2 wd235 flex-fill">{{usuarioEditado.cpf}}</div>
+                    <div class="p-2 wd295 flex-fill">{{usuarioEditado.email}}</div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
 
     <div class="lista">
         <div class="d-flex">
-            <div class="p-2 wd24 flex-fill">Nome Completo</div>
-            <div class="p-2 wd24 flex-fill">Telefone</div>
-            <div class="p-2 wd24 flex-fill">CPF</div>
-            <div class="p-2 wd28 flex-fill">Email</div>
+            <div class="p-2 wd23 flex-fill">Nome Completo</div>
+            <div class="p-2 wd23 flex-fill">Telefone</div>
+            <div class="p-2 wd23 flex-fill">CPF</div>
+            <div class="p-2 wd31 flex-fill">Email</div>
         </div>
         <div *ngFor="let usuario of listaUsuarios" class="d-flex">
-            <div class="p-2 wd24 flex-fill">{{usuario.name}}</div>
-            <div class="p-2 wd24 flex-fill">{{usuario.phone}}</div>
-            <div class="p-2 wd24 flex-fill">{{usuario.cpf}}</div>
-            <div class="p-2 wd24 flex-fill">{{usuario.email}}</div>
-            <div class="p-2 wd4 flex-fill"><button (click)="exibirEditor(usuario)"><img [src]="buttonIcon"></button></div>
+            <div class="p-2 wd23 flex-fill">{{usuario.name}}</div>
+            <div class="p-2 wd23 flex-fill">{{usuario.phone}}</div>
+            <div class="p-2 wd23 flex-fill">{{usuario.cpf}}</div>
+            <div class="p-2 wd23 flex-fill">{{usuario.email}}</div>
+            <div class="p-2 wd4 flex-fill"><button (click)="exibirEditor(usuario)"><img [src]="pencilIcon"></button></div>
+            <div class="p-2 wd4 flex-fill"><button (click)="exibirExcluir(usuario)"><img [src]="trashIcon"></button></div>
         </div>
     </div>
 </div>

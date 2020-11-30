@@ -45,34 +45,8 @@ describe('ListaDadosCadastroComponent', () => {
       buttonDivDe = itensListaDes[index].query(By.css('button'));
       nativeButton = itensListaDes[index].children[4].query(By.css('button')).nativeNode;
       expect(nativeButton).not.toBeNull('one or more items of the list don\'t have a button');      
-      //Simula click no botão
-      expect(edicaoDes.length).toBe(1,'length should be 1');
-      nativeButton.click();
-      fixture.whenStable().then(()=>{
-        console.log('chegou dentro do when stable');
-        // expect(edicaoDes.length).toBe(2,'length should be 2');
-        // expect(fixture.debugElement.query(By.css('.header'))).toBeNull();
-      })
-      
     }
   })
-  //Teste de existência do botão editar
-  // it('should contain a "Editar" button', () => {
-  //   const buttonDes = fixture.debugElement.queryAll(By.css('button'));
-  //   let nativeButton: HTMLButtonElement = buttonDes[0].nativeElement;
-  //   expect(nativeButton.textContent).toBe('Editar');
-  // })
-
-
-
-  // it('should have 4 error messages saying "Campo deve conter 3 caracteres ou mais"', () => {
-  //   const linkDes = fixture.debugElement.queryAll(By.all());
-  //   const linkDes2 = fixture.debugElement.queryAll(By.css('input'));
-  //   const htmlBodyElement: HTMLBodyElement = linkDes[0].nativeElement;
-  //   expect(true).toBeTruthy()
-  //   // expect(htmlBodyElement.textContent).toBe('Campo deve conter 3 caracteres ou mais');
-  // })
-
   @Component({ template: '' }) class ListaDadosCadastroComponentStub {
 
   }

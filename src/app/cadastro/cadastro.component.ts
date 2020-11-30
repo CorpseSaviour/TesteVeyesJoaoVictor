@@ -41,7 +41,6 @@ export class CadastroComponent implements OnInit {
 
   public cadastrarUsuario() {
     this.carregando = true;
-    console.log("antes do tempo")
     let s = this.timer().subscribe((response: any) => {
       if (response === 1) {
         let currentList = JSON.parse(localStorage.getItem('listaUsuarios'))
